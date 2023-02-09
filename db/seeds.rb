@@ -32,10 +32,17 @@ end
 end
 
 specialties = ["Allergy and Immunology","Anesthesiology", "Cardiology", "Colon and Rectal Surgery", "Dermatology",   "Emergency Medicine", "Family Medicine", "Forensic Pathology", "General Surgery", "Genetics and Genomics", "Hospice and Palliative Medicine", "Hospital Medicine", "Internal Medicine", "Neurology", "Obstetrics and Gynecology", "Ophthalmic Surgery", "Pediatrics", "Physical Medicine and Rehabilitation", "Plastic Surgery", "Psychiatry", "Vascular Surgery"]
-100.times do
-    specialty = Specialty.create!(
-        specialty_name: specialties[rand(1..specialties.length)]
+(specialties.length).times do |x|
+  specialty_1 = Specialty.create!(
+    specialty_name: specialties[x]
     )
+end
+
+200.times do
+  jointable = JoinTableDoctorSpecialty.create(
+    doctor_id: rand(1..25),
+    specialty_id: rand(1..specialties.length)
+  )
 end
 
 100.times do 
