@@ -3,6 +3,7 @@ class AddForeignKey < ActiveRecord::Migration[7.0]
     add_reference :doctors, :city, foreign_key: true
     add_reference :appointments, :city, foreign_key: true
     add_reference :patients, :city, foreign_key: true
+    add_reference :specialties, :doctor, foreign_key: true
   end
   
 end

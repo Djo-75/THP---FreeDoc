@@ -52,9 +52,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_142456) do
     t.string "specialty_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "doctor_id"
+    t.index ["doctor_id"], name: "index_specialties_on_doctor_id"
   end
 
   add_foreign_key "appointments", "cities"
   add_foreign_key "doctors", "cities"
   add_foreign_key "patients", "cities"
+  add_foreign_key "specialties", "doctors"
 end
